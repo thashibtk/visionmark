@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>404 - Page Not Found | Visionmark Opticals & Eyecare</title>
+    {% include 'base/header.html' %}
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+            text-align: center;
+        }
+    
+        .error-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    
+        .error-code {
+            font-size: 140px;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+    
+        .error-title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    
+        .error-message {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+    
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 90px;
+            }
+            .error-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+        
+        <main>
+            <section class="error-page">
+                <div class="container">
+                    <div class="error-content">
+                        <div class="error-code">404</div>
+                        <h1 class="error-title">Page Not Found</h1>
+                        <p class="error-message">
+                            Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or the URL might be incorrect.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a class="btn-main fx-slide" href="{% url 'home' %}">
+                                <span>Go to Homepage</span>
+                            </a>
+                            <a class="btn-main btn-line fx-slide" href="{% url 'products' %}">
+                                <span>Browse Products</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        {% include 'base/footer.html' %}
+    </div>
+</body>
+</html>
+

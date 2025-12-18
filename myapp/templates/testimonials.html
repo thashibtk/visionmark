@@ -1,0 +1,101 @@
+{% load static %}
+{% load product_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Visionmark Opticals & Eyecare | Testimonials</title>
+    {% include 'base/header.html' %}
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+        <!-- content begin -->
+        <main>
+
+            <div id="top"></div>
+
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">Testimonials</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li class="active">Testimonials</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+              <div class="container">
+                <div class="row g-4" id="gallery">
+                  {% for testimonial in testimonials %}
+                  <div class="col-lg-4 item">
+                    <div class="border-gray rounded-1 p-30">
+                      <div class="d-flex justify-content-between mb-3">
+                        <div class="d-flex align-items-center">
+                          <div class="w-40px h-40px circle me-3 d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-size: 18px;">
+                            {{ testimonial.name|first|upper }}
+                          </div>
+                          <div class="mt-2">
+                            <div class="text-dark fw-bold lh-1">{{ testimonial.name }}</div>
+                            {% if testimonial.date %}
+                              <small>{{ testimonial.date|date:"d F Y" }}</small>
+                            {% endif %}
+                          </div>
+                        </div>
+                        {% if testimonial.is_google_review %}
+                          <img src="{% static 'images/misc/google-icon.svg' %}" class="w-30px" alt="Google Review">
+                        {% endif %}
+                      </div>
+                      <div class="de-rating-ext mb-2">
+                        <span class="d-stars">
+                          {% for icon_class in testimonial.rating|star_rating %}
+                            <i class="{{ icon_class }}"></i>
+                          {% endfor %}
+                        </span>
+                        <span class="ms-2 text-white">{{ testimonial.rating }}</span>
+                      </div>
+                      <p>"{{ testimonial.comment }}"</p>
+                    </div>
+                  </div>
+                  {% empty %}
+                  <div class="col-12">
+                    <p class="text-center">No testimonials available yet.</p>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </section>
+
+
+            
+
+            <section class="bg-color relative text-light pt-50 pb-50">
+                <div class="container relative z-2">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-9">
+                            <h3 class="mb-0 fs-32 split">Clear Vision Starts Here. Schedule Your Eye Exam Today</h3>
+                        </div>
+                        <div class="col-lg-3 text-lg-end">
+                            <a class="btn-main btn-line fx-slide" href="{% url 'book_your_visit' %}"><span>Book Your Visit</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- content close -->
+        
+        {% include 'base/footer.html' %}
+    </div>
+
+</body>
+
+</html>

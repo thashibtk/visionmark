@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Visionmark Opticals & Eyecare | FAQs</title>
+    {% include 'base/header.html' %}
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+        <!-- content begin -->
+        <main>
+
+            <div id="top"></div>
+
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">FAQ</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li class="active">FAQs</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row g-4 gx-5 justify-content-center">
+                        
+                        <div class="col-lg-8">
+                            <div class="de-tab">
+                                <ul class="d-tab-nav mb-4">
+                                    <li class="active-tab">Appointments & Exams</li>
+                                    <li>Treatments & Procedures</li>
+                                    <li>Insurance & Payments</li> <!-- New Tab -->
+                                </ul>
+                                <ul class="d-tab-content">
+                                    <li>
+                                        <div class="accordion">
+                                            <div class="accordion-section">
+                                                <div class="accordion-section-title" data-tab="#accordion-a1">
+                                                    How do I book an appointment?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-a1">
+                                                    You can book online through our website or call our reception desk. Same-day emergency appointments may be available.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-a2">
+                                                    Do I need a referral to see an optometrist?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-a2">
+                                                    No referral is needed for routine eye exams. For specialized care, a referral from your doctor may be required.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-a3">
+                                                    How often should I have my eyes checked?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-a3">
+                                                    Adults should schedule an eye exam every 1–2 years, while children and seniors may require more frequent visits.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-a4">
+                                                    How long does an eye exam take?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-a4">
+                                                    A comprehensive eye exam usually takes 30–45 minutes, depending on the tests performed.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-a5">
+                                                    What should I bring to my appointment?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-a5">
+                                                    Please bring your ID, insurance card, current glasses or contact lenses, and a list of any medications you are taking.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="accordion">
+                                            <div class="accordion-section">
+                                                <div class="accordion-section-title" data-tab="#accordion-b1">
+                                                    Do you provide laser eye surgery?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-b1">
+                                                    Yes, we offer LASIK consultations and work with trusted surgeons for corrective eye surgery options.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-b2">
+                                                    What treatments are available for dry eyes?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-b2">
+                                                    We provide artificial tears, prescription medications, and advanced therapies such as punctal plugs.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-b3">
+                                                    Can I get prescription glasses on the same day?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-b3">
+                                                    In many cases, yes. We have an in-house optical lab that allows for same-day or next-day glasses service.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-b4">
+                                                    Do you treat eye diseases like glaucoma or cataracts?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-b4">
+                                                    Yes, our clinic diagnoses and manages glaucoma, cataracts, macular degeneration, and other eye conditions.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-b5">
+                                                    Are contact lenses safe for children?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-b5">
+                                                    Yes, with proper care and hygiene, contact lenses are safe for children as young as 10–12 years old.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- New Tab Content -->
+                                    <li>
+                                        <div class="accordion">
+                                            <div class="accordion-section">
+                                                <div class="accordion-section-title" data-tab="#accordion-c1">
+                                                    Do you accept insurance plans?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-c1">
+                                                    Yes, we work with most major insurance providers. Please contact our office to confirm your coverage.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-c2">
+                                                    Can I pay without insurance?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-c2">
+                                                    Absolutely. We accept self-pay patients and offer flexible payment options.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-c3">
+                                                    What payment methods are available?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-c3">
+                                                    We accept cash, debit/credit cards, PayPal, and approved corporate billing accounts.
+                                                </div>
+                                                <div class="accordion-section-title" data-tab="#accordion-c4">
+                                                    Do you offer financing for procedures?
+                                                </div>
+                                                <div class="accordion-section-content" id="accordion-c4">
+                                                    Yes, financing and installment plans are available for certain treatments and procedures.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4">
+                            <img src="{% static 'images/misc/s2.webp' %}" class="w-100 rounded-1" alt="">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        <!-- content close -->
+        
+        {% include 'base/footer.html' %}
+    </div>
+
+</body>
+
+</html>

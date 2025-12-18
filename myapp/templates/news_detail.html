@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ news.title }} | Visionmark News</title>
+    {% include 'base/header.html' %}
+</head>
+
+<body>
+<div id="wrapper">
+    <a href="#" id="back-to-top"></a>
+    {% include 'base/navbar.html' %}
+
+    <main>
+        <section id="subheader" class="bg-color-op-1">
+            <div class="container relative z-2">
+                <div class="row gy-4 gx-5 align-items-center">
+                    <div class="col-lg-12">
+                        <h1 class="split">{{ news.title }}</h1>
+                        <ul class="crumb wow fadeInUp">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'news_list' %}">News</a></li>
+                            <li class="active">{{ news.title|truncatechars:30 }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-5 pb-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-8">
+                        <div class="article">
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <span class="badge rounded-pill bg-color">{{ news.get_news_type_display }}</span>
+                                {% if news.published_at %}
+                                    <span class="text-muted"><i class="fa fa-calendar"></i> {{ news.published_at|date:"M d, Y" }}</span>
+                                {% endif %}
+                                {% if news.location %}
+                                    <span class="text-muted"><i class="fa fa-map-marker"></i> {{ news.location }}</span>
+                                {% endif %}
+                            </div>
+
+                            {% if news.featured_image %}
+                                <img src="{{ news.featured_image.url }}" alt="{{ news.title }}" class="rounded-2 w-100 mb-4">
+                            {% else %}
+                                <img src="{% static 'images/blog/1.webp' %}" alt="{{ news.title }}" class="rounded-2 w-100 mb-4">
+                            {% endif %}
+
+                            {% if news.subtitle %}
+                                <h4 class="text-muted">{{ news.subtitle }}</h4>
+                            {% endif %}
+
+                            <div class="mt-4 content">
+                                {{ news.content|safe }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="widget">
+                            <h4>About this update</h4>
+                            <ul class="list-unstyled mb-4">
+                                <li><strong>Status:</strong> {{ news.get_news_type_display }}</li>
+                                {% if news.location %}
+                                    <li><strong>Location:</strong> {{ news.location }}</li>
+                                {% endif %}
+                                {% if news.published_at %}
+                                    <li><strong>Published:</strong> {{ news.published_at|date:"M d, Y" }}</li>
+                                {% endif %}
+                                <li><strong>Last updated:</strong> {{ news.updated_at|date:"M d, Y" }}</li>
+                            </ul>
+                        </div>
+
+                        {% if recent_news %}
+                        <div class="widget">
+                            <h4>More updates</h4>
+                            <ul class="list-unstyled">
+                                {% for update in recent_news %}
+                                <li class="mb-3">
+                                    <a class="d-block fw-600" href="{% url 'news_detail' update.slug %}">{{ update.title }}</a>
+                                    <small class="text-muted d-block">{{ update.published_at|date:"M d, Y" }}</small>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'base/footer.html' %}
+</div>
+</body>
+</html>
+

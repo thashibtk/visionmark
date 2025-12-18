@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Privacy Policy | Visionmark Opticals & Eyecare</title>
+    {% include 'base/header.html' %}
+</head>
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+        
+        <main>
+            <div id="top"></div>
+
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">Privacy Policy</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li class="active">Privacy Policy</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pt-120 pb-120">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="text-content">
+                                <p class="text-muted mb-4">Last updated: {{ "now"|date:"F d, Y" }}</p>
+
+                                <h2 class="mb-3">1. Introduction</h2>
+                                <p class="mb-4">
+                                    Visionmark Opticals & Eyecare ("we," "our," or "us") is committed to protecting your privacy. 
+                                    This Privacy Policy explains how we collect, use, disclose, and safeguard your information when 
+                                    you visit our website or use our services.
+                                </p>
+
+                                <h2 class="mb-3">2. Information We Collect</h2>
+                                <h3 class="mb-2">2.1 Personal Information</h3>
+                                <p class="mb-3">We may collect the following personal information:</p>
+                                <ul class="mb-4">
+                                    <li>Name, contact details (phone, email, address)</li>
+                                    <li>Date of birth and gender</li>
+                                    <li>Medical history and eye examination results</li>
+                                    <li>Prescription details and vision requirements</li>
+                                    <li>Payment information (processed securely through payment gateways)</li>
+                                </ul>
+
+                                <h3 class="mb-2">2.2 Automatically Collected Information</h3>
+                                <p class="mb-4">
+                                    When you visit our website, we may automatically collect:
+                                </p>
+                                <ul class="mb-4">
+                                    <li>IP address and browser type</li>
+                                    <li>Device information and operating system</li>
+                                    <li>Pages visited and time spent on our website</li>
+                                    <li>Referring website addresses</li>
+                                </ul>
+
+                                <h2 class="mb-3">3. How We Use Your Information</h2>
+                                <p class="mb-4">We use collected information for:</p>
+                                <ul class="mb-4">
+                                    <li>Providing eye care services and consultations</li>
+                                    <li>Processing appointments and bookings</li>
+                                    <li>Fulfilling product orders and prescriptions</li>
+                                    <li>Communicating about appointments, services, and promotions</li>
+                                    <li>Improving our services and website experience</li>
+                                    <li>Complying with legal obligations</li>
+                                    <li>Maintaining medical records as required by law</li>
+                                </ul>
+
+                                <h2 class="mb-3">4. Information Sharing and Disclosure</h2>
+                                <p class="mb-4">We do not sell your personal information. We may share information only in the following circumstances:</p>
+                                <ul class="mb-4">
+                                    <li><strong>Service Providers:</strong> With trusted third parties who assist in operating our business (payment processors, IT services)</li>
+                                    <li><strong>Legal Requirements:</strong> When required by law, court order, or government regulation</li>
+                                    <li><strong>Medical Emergencies:</strong> With healthcare providers in case of medical emergencies</li>
+                                    <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+                                </ul>
+
+                                <h2 class="mb-3">5. Data Security</h2>
+                                <p class="mb-4">
+                                    We implement appropriate technical and organizational measures to protect your personal information 
+                                    against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission 
+                                    over the internet is 100% secure.
+                                </p>
+
+                                <h2 class="mb-3">6. Medical Records Confidentiality</h2>
+                                <p class="mb-4">
+                                    All medical records and eye examination data are maintained with strict confidentiality in accordance 
+                                    with medical privacy laws. Access is restricted to authorized personnel only.
+                                </p>
+
+                                <h2 class="mb-3">7. Cookies and Tracking Technologies</h2>
+                                <p class="mb-4">
+                                    Our website may use cookies and similar tracking technologies to enhance user experience, analyze 
+                                    website traffic, and personalize content. You can control cookie preferences through your browser settings.
+                                </p>
+
+                                <h2 class="mb-3">8. Your Rights</h2>
+                                <p class="mb-4">You have the right to:</p>
+                                <ul class="mb-4">
+                                    <li>Access your personal information</li>
+                                    <li>Request correction of inaccurate data</li>
+                                    <li>Request deletion of your information (subject to legal requirements)</li>
+                                    <li>Opt-out of marketing communications</li>
+                                    <li>Request a copy of your medical records</li>
+                                </ul>
+
+                                <h2 class="mb-3">9. Data Retention</h2>
+                                <p class="mb-4">
+                                    We retain your personal information and medical records as required by law and for legitimate business 
+                                    purposes. Medical records are typically retained for a minimum period as required by healthcare regulations.
+                                </p>
+
+                                <h2 class="mb-3">10. Children's Privacy</h2>
+                                <p class="mb-4">
+                                    Our services are available to all ages. For minors, we require parental consent for services and 
+                                    maintain appropriate safeguards for children's information.
+                                </p>
+
+                                <h2 class="mb-3">11. Third-Party Links</h2>
+                                <p class="mb-4">
+                                    Our website may contain links to third-party websites. We are not responsible for the privacy practices 
+                                    of these external sites. We encourage you to review their privacy policies.
+                                </p>
+
+                                <h2 class="mb-3">12. Changes to Privacy Policy</h2>
+                                <p class="mb-4">
+                                    We may update this Privacy Policy from time to time. Changes will be posted on this page with an 
+                                    updated "Last updated" date. We encourage you to review this policy periodically.
+                                </p>
+
+                                <h2 class="mb-3">13. Contact Us</h2>
+                                <p class="mb-4">For privacy-related inquiries or to exercise your rights, please contact us:</p>
+                                <ul class="mb-4">
+                                    <li><strong>Payyavur Branch:</strong> Phone: 97477 36675</li>
+                                    <li><strong>Email:</strong> visionmarkpyr@gmail.com</li>
+                                    <li><strong>Address:</strong> Payyavur Angadi Complex, Payyavur,Kannur, Kerala, India</li>
+                                    <br>
+                                    <li><strong>Blathur Branch:</strong> Phone: 96057 36675</li>
+                                    <li><strong>Email:</strong> visionmarkbtr@gmail.com</li>
+                                    <li><strong>Address:</strong> Noor Complex, Blathur,Kannur, Kerala, India</li><br>
+                                    
+                                </ul>
+
+                                <h2 class="mb-3">14. Consent</h2>
+                                <p class="mb-4">
+                                    By using our services and providing your information, you consent to the collection, use, and 
+                                    disclosure of information as described in this Privacy Policy.
+                                </p>
+
+                                <div class="mt-5 pt-4 border-top">
+                                    <p class="text-muted small">
+                                        This Privacy Policy is effective as of the date stated above and applies to all information 
+                                        collected by Visionmark Opticals & Eyecare.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        {% include 'base/footer.html' %}
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,135 @@
+{% load static %}
+<!-- footer begin -->
+<footer class="section-dark">
+    <div class="container">
+        <div class="row gx-5">
+
+            <!-- Logo + About -->
+            <div class="col-lg-4 col-sm-6">
+                <img src="{% static 'images/logo/logowhite2.webp' %}" class="logo-footer" alt="">
+                <div class="spacer-10"></div>
+                <p>
+                    Visionmark Opticals & Eyecare provides trusted eye testing, high-quality spectacles,
+                    sunglasses, and contact lenses. With branches in Payyavur and Blathur, we ensure
+                    accurate eye checkups and clear vision for everyone.
+                </p>
+
+                <div class="social-icons mb-sm-30">
+                    <a href="https://www.facebook.com/people/Visionmark-Opticals-Eyecare/61552365763816/"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/919747736675"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/visionmark_opticals_n_eyecare/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@visionmark2023"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <div class="widget">
+                            <h5>Services</h5>
+                            <ul>
+                                <li><a href="service-single.html">Free Eye Test</a></li>
+                                <li><a href="service-single.html">Spectacles</a></li>
+                                <li><a href="service-single.html">Sunglasses</a></li>
+                                <li><a href="service-single.html">Contact Lenses</a></li>
+                                <li><a href="service-single.html">Digital Eye Strain Solutions</a></li>
+                                <li><a href="service-single.html">Kids Eye Care</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="widget">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="services.html">Our Services</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{% url 'book_your_visit' %}">Book Appointment</a></li>
+                                <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                <div class="widget">
+                    <h5>Contact Us</h5>
+
+                    <!-- Payyavur Branch -->
+                    <div class="mb-4">
+                        <div class="fw-bold text-white mb-2">
+                            <i class="icofont-location-pin me-2 id-color"></i>Payyavur Branch
+                        </div>
+                        <div class="mb-2">
+                            Payyavur Angadi Complex, Payyavur, Kannur, Kerala
+                        </div>
+                        <div class="mb-2">
+                            <i class="icofont-phone me-2 id-color"></i>
+                            <a href="tel:9747736675" class="text-white">97477 36675</a>
+                        </div>
+                        <div>
+                            <i class="icofont-envelope me-2 id-color"></i>
+                            <a href="mailto:visionmarkpyr@gmail.com" class="text-white">visionmarkpyr@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Blathur Branch -->
+                    <div>
+                        <div class="fw-bold text-white mb-2">
+                            <i class="icofont-location-pin me-2 id-color"></i>Blathur Branch
+                        </div>
+                        <div class="mb-2">
+                            Noor Complex, Blathur, Kannur, Kerala
+                        </div>
+                        <div class="mb-2">
+                            <i class="icofont-phone me-2 id-color"></i>
+                            <a href="tel:9605736675" class="text-white">96057 36675</a>
+                        </div>
+                        <div>
+                            <i class="icofont-envelope me-2 id-color"></i>
+                            <a href="mailto:visionmarkbtr@gmail.com" class="text-white">visionmarkbtr@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="subfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="de-flex">
+                        <div class="de-flex-col">
+                            © 2025 Visionmark Opticals & Eyecare
+                        </div>
+                        <ul class="menu-simple">
+                            <li><a href="{% url 'terms' %}">Terms &amp; Conditions</a></li>
+                            <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- footer close -->
+
+<!-- Javascript Files
+================================================== -->
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/designesia.js' %}"></script>
+
+<!-- swiper slider -->
+<script src="{% static 'js/swiper.js' %}"></script>
+<script src="{% static 'js/custom-swiper.js' %}"></script>

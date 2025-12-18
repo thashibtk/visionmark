@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ post.title }} | Visionmark Opticals & Eyecare</title>
+    {% include 'base/header.html' %}
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+        <main>
+
+            <div id="top"></div>
+
+            <!-- HEADER -->
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">{{ post.title }}</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'blog_list' %}">Blog</a></li>
+                                <li class="active">{{ post.title }}</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BLOG SINGLE -->
+            <section>
+                <div class="container">
+                    <div class="row gx-5">
+
+                        <!-- MAIN CONTENT -->
+                        <div class="col-lg-8">
+                            <div class="blog-read">
+
+                                {% if post.featured_image %}
+                                    <img src="{{ post.featured_image.url }}" class="w-100 rounded-1 mb-4" alt="{{ post.title }}">
+                                {% endif %}
+
+                                <div class="blog-meta mb-3">
+                                    <span class="me-3">
+                                        <i class="fa fa-calendar"></i>
+                                        {{ post.published_at|date:"d M Y" }}
+                                    </span>
+                                    {% if post.author %}
+                                    <span>
+                                        <i class="fa fa-user"></i>
+                                        {{ post.author }}
+                                    </span>
+                                    {% endif %}
+                                </div>
+
+                                <!-- CONTENT FROM CKEDITOR -->
+                                <div class="blog-content">
+                                    {{ post.content|safe }}
+                                </div>
+
+                            </div>
+
+                            <div class="spacer-single"></div>
+
+
+                        </div>
+
+                        <!-- SIDEBAR -->
+                        <div class="col-lg-4">
+
+                            <!-- POPULAR POSTS -->
+                            <div class="widget widget-post">
+                                <h4>Popular Posts</h4>
+                                <ul class="de-bloglist-type-1">
+
+                                    {% for item in popular_posts %}
+                                    <li>
+                                        <div class="d-image">
+                                            {% if item.featured_image %}
+                                                <img src="{{ item.featured_image.url }}" alt="{{ item.title }}">
+                                            {% else %}
+                                                <img src="{% static 'images/blog/default.webp' %}" alt="{{ item.title }}">
+                                            {% endif %}
+                                        </div>
+                                        <div class="d-content">
+                                            <a href="{% url 'blog_single' item.slug %}">
+                                                <h4>{{ item.title }}</h4>
+                                            </a>
+                                            <div class="d-date">{{ item.published_at|date:"d M Y" }}</div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-color relative text-light pt-50 pb-50">
+                <div class="container relative z-2">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-9">
+                            <h3 class="mb-0 fs-32 split">Clear Vision Starts Here. Schedule Your Eye Exam Today</h3>
+                        </div>
+                        <div class="col-lg-3 text-lg-end">
+                            <a class="btn-main btn-line fx-slide" href="">
+                                <span>Book Your Visit</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        {% include 'base/footer.html' %}
+    </div>
+</body>
+
+</html>

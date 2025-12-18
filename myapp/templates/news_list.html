@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Visionmark Opticals & Eyecare | News & Updates</title>
+    {% include 'base/header.html' %}
+</head>
+
+<body>
+<div id="wrapper">
+    <a href="#" id="back-to-top"></a>
+    {% include 'base/navbar.html' %}
+
+    <main>
+        <section id="subheader" class="bg-color-op-1">
+            <div class="container relative z-2">
+                <div class="row gy-4 gx-5 align-items-center">
+                    <div class="col-lg-12">
+                        <h1 class="split">News & Updates</h1>
+                        <ul class="crumb wow fadeInUp">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li class="active">News</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-4 pb-5">
+            <div class="container">
+                <div class="row g-4 gy-5">
+                    {% for news in page_obj %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hover h-100 d-flex flex-column">
+                            <div class="post-image rounded-1 mb-3 overflow-hidden" style="height: 250px;">
+                                <a href="{% url 'news_detail' news.slug %}">
+                                    {% if news.featured_image %}
+                                        <img src="{{ news.featured_image.url }}" alt="{{ news.title }}" class="hover-scale-1-1 w-100 h-100" style="object-fit: cover;">
+                                    {% else %}
+                                        <img src="{% static 'images/blog/1.webp' %}" alt="{{ news.title }}" class="hover-scale-1-1 w-100 h-100" style="object-fit: cover;">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="flex-grow-1 d-flex flex-column">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge rounded-pill bg-color">{{ news.get_news_type_display }}</span>
+                                    {% if news.published_at %}
+                                        <span class="text-muted small">{{ news.published_at|date:"M d, Y" }}</span>
+                                    {% endif %}
+                                </div>
+                                <h4 class="mb-2">
+                                    <a class="text-dark" href="{% url 'news_detail' news.slug %}">
+                                        {{ news.title }}
+                                    </a>
+                                </h4>
+                            
+                                <div class="mt-auto">
+                                    <a class="btn-line" href="{% url 'news_detail' news.slug %}">
+                                        Read story <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center">
+                        <h4>No news to show just yet. Please check back soon.</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if page_obj.has_other_pages %}
+                <div class="row">
+                    <div class="col-12 pt-4 text-center">
+                        <div class="d-inline-block">
+                            <nav>
+                                <ul class="pagination">
+                                    {% if page_obj.has_previous %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+
+                                    {% for num in page_obj.paginator.page_range %}
+                                        {% if num == page_obj.number %}
+                                            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                        {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if page_obj.has_next %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="bg-color relative text-light pt-50 pb-50">
+            <div class="container relative z-2">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-9">
+                        <h3 class="mb-0 fs-32 split">Stay updated with our camps, offers, and hiring news.</h3>
+                    </div>
+                    <div class="col-lg-3 text-lg-end">
+                        <a class="btn-main btn-line fx-slide" href="mailto:contact@visionmark.com">
+                            <span>Reach Out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'base/footer.html' %}
+</div>
+</body>
+</html>

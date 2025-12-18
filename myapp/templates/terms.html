@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Terms and Conditions | Visionmark Opticals & Eyecare</title>
+    {% include 'base/header.html' %}
+</head>
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+        
+        <main>
+            <div id="top"></div>
+
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">Terms and Conditions</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li class="active">Terms and Conditions</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pt-120 pb-120">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="text-content">
+                                <p class="text-muted mb-4">Last updated: {{ "now"|date:"F d, Y" }}</p>
+
+                                <h2 class="mb-3">1. Introduction</h2>
+                                <p class="mb-4">
+                                    Welcome to Visionmark Opticals & Eyecare. These Terms and Conditions govern your use of our website and services. 
+                                    By accessing our website or using our services, you agree to be bound by these terms.
+                                </p>
+
+                                <h2 class="mb-3">2. Services</h2>
+                                <p class="mb-4">
+                                    Visionmark Opticals & Eyecare provides optical and eyecare services including:
+                                </p>
+                                <ul class="mb-4">
+                                    <li>Free eye tests and vision consultations</li>
+                                    <li>Spectacles and prescription glasses</li>
+                                    <li>Sunglasses and protective eyewear</li>
+                                    <li>Contact lenses</li>
+                                    <li>Eye care products and accessories</li>
+                                </ul>
+
+                                <h2 class="mb-3">3. Appointments and Bookings</h2>
+                                <p class="mb-4">
+                                    Appointments can be booked through our website, phone, or in-person. We reserve the right to:
+                                </p>
+                                <ul class="mb-4">
+                                    <li>Reschedule appointments due to unforeseen circumstances</li>
+                                    <li>Request rescheduling if you arrive more than 15 minutes late</li>
+                                    <li>Cancel appointments with reasonable notice</li>
+                                </ul>
+
+                                <h2 class="mb-3">4. Products and Pricing</h2>
+                                <p class="mb-4">
+                                    All product prices are subject to change without notice. While we strive for accuracy, 
+                                    we reserve the right to correct any pricing errors. Product availability is subject to stock levels.
+                                </p>
+
+                                <h2 class="mb-3">5. Payment Terms</h2>
+                                <p class="mb-4">
+                                    Payment is required at the time of service or product purchase. We accept cash, credit/debit cards, 
+                                    and other approved payment methods. All prices are in Indian Rupees (₹).
+                                </p>
+
+                                <h2 class="mb-3">6. Returns and Refunds</h2>
+                                <p class="mb-4">
+                                    Custom prescription glasses and contact lenses are non-refundable once manufactured. 
+                                    Sunglasses and non-prescription products may be returned within 7 days of purchase in original condition. 
+                                    Refunds will be processed according to our refund policy.
+                                </p>
+
+                                <h2 class="mb-3">7. Warranty</h2>
+                                <p class="mb-4">
+                                    Frames come with manufacturer warranty. Lens warranty is subject to terms and conditions. 
+                                    Warranty does not cover damage due to misuse, accidents, or normal wear and tear.
+                                </p>
+
+                                <h2 class="mb-3">8. Medical Disclaimer</h2>
+                                <p class="mb-4">
+                                    Our eye tests and consultations are provided by qualified professionals. However, we recommend 
+                                    consulting with an ophthalmologist for serious eye conditions. Our services are not a substitute 
+                                    for professional medical diagnosis or treatment.
+                                </p>
+
+                                <h2 class="mb-3">9. Privacy</h2>
+                                <p class="mb-4">
+                                    Your personal information and medical data are protected according to our Privacy Policy. 
+                                    We maintain confidentiality of all patient records.
+                                </p>
+
+                                <h2 class="mb-3">10. Limitation of Liability</h2>
+                                <p class="mb-4">
+                                    Visionmark Opticals & Eyecare shall not be liable for any indirect, incidental, or consequential 
+                                    damages arising from the use of our services or products, except as required by law.
+                                </p>
+
+                                <h2 class="mb-3">11. Intellectual Property</h2>
+                                <p class="mb-4">
+                                    All content on this website, including text, images, logos, and designs, is the property of 
+                                    Visionmark Opticals & Eyecare and protected by copyright laws.
+                                </p>
+
+                                <h2 class="mb-3">12. Changes to Terms</h2>
+                                <p class="mb-4">
+                                    We reserve the right to modify these terms at any time. Changes will be effective immediately 
+                                    upon posting on our website. Continued use of our services constitutes acceptance of modified terms.
+                                </p>
+
+                                <h2 class="mb-3">13. Contact Information</h2>
+                                <p class="mb-4">
+                                    For questions about these Terms and Conditions, please contact us:
+                                </p>
+                                <ul class="mb-4">
+                                    <li><strong>Payyavur Branch:</strong> Phone: 97477 36675</li>
+                                    <li><strong>Blathur Branch:</strong> Phone: 96057 36675</li>
+                                    <li><strong>Email:</strong> info@visionmark.com</li>
+                                </ul>
+
+                                <h2 class="mb-3">14. Governing Law</h2>
+                                <p class="mb-4">
+                                    These Terms and Conditions are governed by the laws of India. Any disputes shall be subject to 
+                                    the exclusive jurisdiction of the courts in Kerala, India.
+                                </p>
+
+                                <div class="mt-5 pt-4 border-top">
+                                    <p class="text-muted small">
+                                        By using our services, you acknowledge that you have read, understood, and agree to be bound 
+                                        by these Terms and Conditions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        {% include 'base/footer.html' %}
+    </div>
+</body>
+</html>
+

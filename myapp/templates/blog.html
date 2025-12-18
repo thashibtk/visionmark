@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title>Visionmark Opticals & Eyecare | Blog</title>
+    {% include 'base/header.html' %}
+</head>
+
+<body>
+<div id="wrapper">
+
+    <a href="#" id="back-to-top"></a>
+    {% include 'base/navbar.html' %}
+
+    <main>
+
+        <section id="subheader" class="bg-color-op-1">
+            <div class="container relative z-2">
+                <div class="row gy-4 gx-5 align-items-center">
+                    <div class="col-lg-12">
+                        <h1 class="split">Blog</h1>
+                        <ul class="crumb wow fadeInUp">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li class="active">Blog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row g-4 gy-5">
+
+                    {% for post in page_obj %}
+                    <div class="col-lg-4 col-md-6 mb10">
+                        <div class="hover">
+                            <div class="post-image rounded-1 mb-2 overflow-hidden">
+
+                                {% if post.published_at %}
+                                <div class="abs z-2 bg-color rounded-2 text-white p-3 m-4 text-center fw-600 end-0" style="padding-bottom: 0.75rem;">
+                                    <h4 class="fs-36 mb-0 lh-1">
+                                        {{ post.published_at|date:"d" }}
+                                    </h4>
+                                    <div style="line-height: 1.2;">
+                                        <span class="d-block">{{ post.published_at|date:"b" }}</span>
+                                        <span class="d-block" style="font-size: 0.65rem; opacity: 0.8; margin-top: -2px;">{{ post.published_at|date:"Y" }}</span>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <a href="{% url 'blog_single' post.slug %}">
+                                    {% if post.featured_image %}
+                                    <img alt="{{ post.title }}"
+                                         src="{{ post.featured_image.url }}"
+                                         class="hover-scale-1-1">
+                                    {% else %}
+                                    <img alt="{{ post.title }}"
+                                         src="{% static 'images/blog/1.webp' %}"
+                                         class="hover-scale-1-1">
+                                    {% endif %}
+                                </a>
+                            </div>
+
+                            <div class="pt-2 h-100">
+                                <h4>
+                                    <a class="text-dark" href="{% url 'blog_single' post.slug %}">
+                                        {{ post.title }}
+                                    </a>
+                                </h4>
+
+                                <p class="mb-3">
+                                    {{ post.excerpt|truncatechars:120 }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center">
+                        <h4>No blog posts available yet.</h4>
+                    </div>
+                    {% endfor %}
+
+                    <!-- Pagination -->
+                    {% if page_obj.has_other_pages %}
+                    <div class="col-lg-12 pt-4 text-center">
+                        <div class="d-inline-block">
+                            <nav>
+                                <ul class="pagination">
+
+                                    {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                            <i class="fa fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+
+                                    {% for num in page_obj.paginator.page_range %}
+                                        {% if num == page_obj.number %}
+                                            <li class="page-item active">
+                                                <a class="page-link">{{ num }}</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <!-- End Pagination -->
+
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-color relative text-light pt-50 pb-50">
+            <div class="container relative z-2">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-9">
+                        <h3 class="mb-0 fs-32 split">Clear Vision Starts Here. Schedule Your Eye Exam Today</h3>
+                    </div>
+                    <div class="col-lg-3 text-lg-end">
+                        <a class="btn-main btn-line fx-slide" href="">
+                            <span>Book Your Visit</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    {% include 'base/footer.html' %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Visionmark Opticals & Eyecare | Book Your Visit</title>
+    {% include 'base/header.html' %}
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        
+        {% include 'base/navbar.html' %}
+
+        <main>
+
+            <div id="top"></div>
+
+            <!-- Header -->
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">Book Your Visit</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li class="active">Book Your Visit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Section -->
+            <section>
+                <div class="container relative z-2">
+                    <div class="row g-4 gx-5 justify-content-between">
+
+                        <!-- Form -->
+                        <div class="col-lg-6">
+
+                            <!-- Booking Form -->
+                            <form name="bookingForm" id="booking_form" method="post" action="#">
+                                {% csrf_token %}
+
+                                <div class="row g-4">
+
+                                    <div class="col-lg-12">
+                                        <p>
+                                            Book your appointment with Visionmark Opticals & Eyecare.
+                                            Our team will ensure you receive accurate eye checkups, lens guidance,
+                                            and personalized vision care.
+                                        </p>
+
+                                        <div class="relative">
+                                            <select name="service" id="service" class="form-control" required>
+                                                <option disabled selected value>Select Service</option>
+                                                <option value="Free Eye Test">Free Eye Test</option>
+                                                <option value="Spectacles">Spectacles</option>
+                                                <option value="Sunglasses">Sunglasses</option>
+                                                <option value="Contact Lenses">Contact Lenses</option>
+                                                <option value="Kids Eye Care">Kids Eye Care</option>
+                                                <option value="Digital Eye Strain Solutions">Digital Eye Strain Solutions</option>
+                                            </select>
+                                            <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <input type="date" name="pickup_date" id="pickup_date" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="relative">
+                                            <select name="time" id="time" class="form-control" required>
+                                                <option disabled selected value>Select Time</option>
+
+                                                <option value="09:00 AM">09:00 AM</option>
+                                                <option value="10:00 AM">10:00 AM</option>
+                                                <option value="11:00 AM">11:00 AM</option>
+                                                <option value="12:00 PM">12:00 PM</option>
+                                                <option value="01:00 PM">01:00 PM</option>
+                                                <option value="02:00 PM">02:00 PM</option>
+                                                <option value="03:00 PM">03:00 PM</option>
+                                                <option value="04:00 PM">04:00 PM</option>
+                                                <option value="05:00 PM">05:00 PM</option>
+                                                <option value="06:00 PM">06:00 PM</option>
+                                                <option value="07:00 PM">07:00 PM</option>
+                                                <option value="08:00 PM">08:00 PM</option>
+                                            </select>
+
+                                            <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <input type="text" name="name" id="name" placeholder="Name" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <input type="email" name="email" id="email" placeholder="Email (optional)" class="form-control">
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <input type="text" name="phone" id="phone" placeholder="Phone" class="form-control" required>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <textarea name="message" id="message" class="form-control" placeholder="Message (optional)"></textarea>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="submit" id="send_message" value="Send Appointment" class="btn-main">
+                                    </div>
+
+                                </div>
+
+                                <div id="error_message" class="error" style="display:none;">
+                                    Sorry, there was an error submitting your form.
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <!-- Image + Hours -->
+                        <div class="col-lg-6">
+                            <div class="h-100 rounded-1 relative" data-bgimage="url({% static 'images/misc/s4.webp' %}) center">
+                                <div class="bg-color text-light abs start-10 bottom-10 p-4 rounded-1 overflow-hidden z-2">
+                                    <div class="d-flex justify-content-center">
+                                        <i class="fs-60 text-white icon_clock"></i>
+                                        <div class="ms-3">
+                                            <h4 class="mb-0">Opening Hours</h4>
+                                            Mon to Sat — 09:00 AM to 08:00 PM
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        {% include 'base/footer.html' %}
+        <script>
+            // Disable past dates and prevent selecting Sundays
+            const dateInput = document.getElementById("pickup_date");
+            const today = new Date().toISOString().split("T")[0];
+            dateInput.setAttribute("min", today);
+
+            // Utility to detect Sundays. Keep in global scope so other scripts can use it.
+            function isSunday(dateStr) {
+                if (!dateStr) return false;
+                // Ensure we create a date at local midnight to get correct day
+                const parts = dateStr.split('-');
+                if (parts.length !== 3) return false;
+                const d = new Date(parts[0], parts[1] - 1, parts[2]);
+                return d.getDay() === 0;
+            }
+
+            dateInput.addEventListener('change', function () {
+                if (isSunday(this.value)) {
+                    alert('Sundays are not available for appointments. Please choose another date.');
+                    this.value = '';
+                    this.focus();
+                }
+            });
+        </script>
+        
+
+        <script>
+            document.getElementById("booking_form").addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                let name = document.getElementById("name").value.trim();
+                let phone = document.getElementById("phone").value.trim();
+                let service = document.getElementById("service").value;
+                let date = document.getElementById("pickup_date").value;
+                let time = document.getElementById("time").value;
+
+                if (!name || !phone || !service || !date || !time) {
+                    alert("Please fill all required fields.");
+                    return;
+                }
+
+                // Prevent Sundays (extra safety on submit)
+                if (isSunday(date)) {
+                    alert('Sundays are not available for appointments. Please choose another date.');
+                    return;
+                }
+
+                // WhatsApp number (change if needed)
+                let whatsappNumber = "919747736675"; // Visionmark Payyavur
+
+                let message = 
+            `New Appointment Request:
+
+            Name: ${name}
+            Phone: ${phone}
+            Service: ${service}
+            Date: ${date}
+            Time: ${time}
+
+            Message: ${document.getElementById("message").value}
+            `;
+
+                let url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+                window.open(url, "_blank");
+            });
+        </script>
+            
+    </div>
+
+</body>
+
+</html>

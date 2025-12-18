@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Visionmark Opticals & Eyecare | About Us</title>
+        {% include 'base/header.html' %}
+    </head>
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+
+        
+        {% include 'base/navbar.html' %}
+        <!-- content begin -->
+        <main>
+
+            <div id="top"></div>
+
+            <section id="subheader" class="bg-color-op-1">
+                <div class="container relative z-2">
+                    <div class="row gy-4 gx-5 align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="split">About Us</h1>
+                            <ul class="crumb wow fadeInUp">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li class="active">About Us</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row g-4 align-items-center">
+            
+                        <!-- Images -->
+                        <div class="col-lg-6">
+                            <div class="relative">
+                                <div class="rounded-1 w-90 overflow-hidden wow zoomIn">
+                                    <img src="{% static 'images/misc/l1.webp' %}" class="w-100 wow scaleIn" alt="">
+                                </div>
+                                <div class="rounded-1 w-50 abs mb-min-50 end-0 bottom-0 z-2 overflow-hidden shadow-soft wow zoomIn" data-wow-delay=".2s">
+                                    <img src="{% static 'images/misc/s2.webp' %}" class="w-100 wow scaleIn" data-wow-delay=".2s" alt="">
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Text -->
+                        <div class="col-lg-6">
+                            <div class="ps-lg-3">
+                                <div class="subtitle id-color wow fadeInUp" data-wow-delay=".2s">About Us</div>
+                                <h2 class="split">Trusted Optical Care for You and Your Family</h2>
+                                <p class="mb-0 wow fadeInUp" data-wow-delay=".6s">
+                                    Visionmark Opticals & Eyecare is committed to providing accurate eye testing and 
+                                    high-quality eyewear for customers of all ages. With trained professionals, modern 
+                                    vision-testing tools, and a wide range of frames, sunglasses, and contact lenses, 
+                                    we make eye care simple, affordable, and reliable.  
+                                    <br><br>
+                                    Whether you need a routine checkup or a fresh pair of glasses, our mission is 
+                                    straightforward — help you see clearly and confidently every day.
+                                </p>
+                            </div>
+                        </div>
+            
+                    </div>
+            
+                    <div class="spacer-double"></div>
+                    <div class="spacer-double"></div>
+            
+                    <!-- Expertise -->
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <h3 class="mb-0">Our Expertise</h3>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0s">
+                            <div class="skill-bar style-2">
+                                <i class="fa-solid fa-eye fs-32 mb-2 id-color"></i>
+                                <h5>Free Eye Testing</h5>
+                                <p class="mb-0 text-muted">Accurate and quick vision checks using modern tools.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="skill-bar style-2">
+                                <i class="fa-solid fa-glasses fs-32 mb-2 id-color"></i>
+                                <h5>Spectacles & Lens Fitting</h5>
+                                <p class="mb-0 text-muted">Perfectly fitted powered lenses and stylish frames for all ages.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="skill-bar style-2">
+                                <i class="fa-solid fa-circle-dot fs-32 mb-2 id-color"></i>
+                                <h5>Contact Lens Guidance</h5>
+                                <p class="mb-0 text-muted">Professional advice for safe and comfortable lens usage.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="skill-bar style-2">
+                                <i class="fa-solid fa-child-reaching fs-32 mb-2 id-color"></i>
+                                <h5>Kids Eye Care</h5>
+                                <p class="mb-0 text-muted">Friendly checkups and lightweight, durable frames for kids.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.8s">
+                            <div class="skill-bar style-2">
+                                <i class="fa-solid fa-mobile-screen-button fs-32 mb-2 id-color"></i>
+                                <h5>Digital Eye Strain Solutions</h5>
+                                <p class="mb-0 text-muted">Blue-cut and anti-glare lenses for mobile and computer users.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="1s">
+                            <div class="skill-bar style-2">
+                                <i class="fa-solid fa-microscope fs-32 mb-2 id-color"></i>
+                                <h5>Modern Diagnostic Tools</h5>
+                                <p class="mb-0 text-muted">Up-to-date equipment for precise and comfortable eye testing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+            
+                </div>
+            </section>
+            
+
+            <section>
+                <div class="container">
+                    <div class="row g-4">
+            
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".0s">
+                                <i class="fa-solid fa-eye fs-40 mb-2 id-color"></i>
+                                <h3 class="fs-40 mb-0"><span>12000</span>+</h3>
+                                Eye Tests Completed
+                            </div>
+                        </div>
+            
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".2s">
+                                <i class="fa-solid fa-user-check fs-40 mb-2 id-color"></i>
+                                <h3 class="fs-40 mb-0"><span>8500</span>+</h3>
+                                Happy Customers
+                            </div>
+                        </div>
+            
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".4s">
+                                <i class="fa-solid fa-shop fs-40 mb-2 id-color"></i>
+                                <h3 class="fs-40 mb-0"><span>2</span></h3>
+                                Branches
+                            </div>
+                        </div>
+            
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".6s">
+                                <i class="fa-solid fa-award fs-40 mb-2 id-color"></i>
+                                <h3 class="fs-40 mb-0"><span>5</span>+</h3>
+                                Years of Experience
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+            
+
+            <section class="bg-color relative text-light pt-50 pb-50">
+                <div class="container relative z-2">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-9">
+                            <h3 class="mb-0 fs-32 split">See Better. Live Better. Book Your Free Eye Test Today</h3>
+                        </div>
+                        <div class="col-lg-3 text-lg-end">
+                            <a class="btn-main btn-line fx-slide" href="{% url 'book_your_visit' %}">
+                                <span>Book Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+        </main>
+        <!-- content close -->
+
+        {% include 'base/footer.html' %}
+    </div>
+
+</body>
+
+</html>
