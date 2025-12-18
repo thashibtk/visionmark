@@ -30,12 +30,9 @@
                         <div class="widget">
                             <h5>Services</h5>
                             <ul>
-                                <li><a href="service-single.html">Free Eye Test</a></li>
-                                <li><a href="service-single.html">Spectacles</a></li>
-                                <li><a href="service-single.html">Sunglasses</a></li>
-                                <li><a href="service-single.html">Contact Lenses</a></li>
-                                <li><a href="service-single.html">Digital Eye Strain Solutions</a></li>
-                                <li><a href="service-single.html">Kids Eye Care</a></li>
+                                {% for service in services %}
+                                    <li><a href="{% url 'servicedetails' service.id %}">{{ service.name }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
