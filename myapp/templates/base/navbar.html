@@ -28,7 +28,7 @@
                                 <ul id="mainmenu">
 
                                     <li><a class="menu-item" href="{% url 'home' %}">Home</a></li>
-
+                                    <li><a class="menu-item" href="{% url 'about' %}">About Us</a></li>
                                     <li><a class="menu-item" href="{% url 'services' %}">Services</a>
                                         <ul>
                                             {% for s in services %}
@@ -39,9 +39,6 @@
                                         </ul>
                                         
                                     </li>   
-
-                                    <li><a class="menu-item" href="{% url 'about' %}">About Us</a></li>
-
                                     <li><a class="menu-item" href="{% url 'products' %}">Shop</a></li>
                                     <li><a class="menu-item" href="{% url 'blog_list' %}">Blog</a></li>
                                     <li><a class="menu-item" href="{% url 'news_list' %}">News</a></li>

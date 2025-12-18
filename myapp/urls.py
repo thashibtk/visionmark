@@ -1,5 +1,15 @@
 from django.urls import path
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticSitemap, ServiceSitemap, ProductSitemap, BlogSitemap, NewsSitemap
 from . import views
+
+sitemaps = {
+    'static': StaticSitemap,
+    'services': ServiceSitemap,
+    'products': ProductSitemap,
+    'blog': BlogSitemap,
+    'news': NewsSitemap,
+}
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -16,6 +26,8 @@ urlpatterns = [
     path('products', views.products, name='products'),
     path('products/<slug:slug>', views.product_detail, name='product_detail'),
     path('testimonials', views.testimonials, name='testimonials'),
-    path('terms', views.terms, name='terms'),
+    path('robots.txt', views.robots_txt, name='robots_txt'),
     path('privacy', views.privacy, name='privacy'),
+    path('terms', views.terms, name='terms'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]

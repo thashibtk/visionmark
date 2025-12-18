@@ -134,7 +134,7 @@ Table of content:
 .bg-gradient-1{  background: -moz-linear-gradient(var(--bg-gradient-1)) !important;  background: -webkit-linear-gradient(var(--bg-gradient-1)) !important;background: linear-gradient(var(--bg-gradient-1)) !important;
 }
 /* base color */
-.id-color{color:var(--primary-color)}
+.id-color{color:var(--primary-color) !important}
 .rounded-1{
   border-radius: var(--rounded-1) !important;
   -moz-border-radius: var(--rounded-1) !important;
