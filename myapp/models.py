@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django_ckeditor_5.fields import CKEditor5Field
+from .utils import compress_image
 
 # Create your models here.
 
@@ -17,6 +18,13 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            compressed = compress_image(self.image)
+            if compressed:
+                self.image = compressed
+        super().save(*args, **kwargs)
 
 
 class Blog(models.Model):
@@ -39,6 +47,13 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if self.featured_image:
+            compressed = compress_image(self.featured_image)
+            if compressed:
+                self.featured_image = compressed
+        super().save(*args, **kwargs)
 
 
 class News(models.Model):
@@ -68,6 +83,13 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if self.featured_image:
+            compressed = compress_image(self.featured_image)
+            if compressed:
+                self.featured_image = compressed
+        super().save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -104,6 +126,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if self.main_image:
+            compressed = compress_image(self.main_image)
+            if compressed:
+                self.main_image = compressed
+        super().save(*args, **kwargs)
 
     def get_primary_gallery_image(self):
         return (
@@ -144,6 +173,13 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"{self.product.name} image"
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            compressed = compress_image(self.image)
+            if compressed:
+                self.image = compressed
+        super().save(*args, **kwargs)
 
 
 class Testimonial(models.Model):

@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "E:\VisionMark\visionmark\verify_context.py", line 19, in check_context
-    if 'services' in response.context:
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: argument of type 'NoneType' is not iterable
