@@ -81,8 +81,8 @@ class ProductImageInline(TabularInline):
 @admin.register(Product)
 class ProductAdmin(ModelAdmin):
     form = ProductAdminForm
-    list_display = ['name', 'main_image_preview', 'category', 'brand', 'price', 'sale_price', 'stock', 'is_active']
-    list_filter = ['category', 'brand', 'is_active', 'created_at']
+    list_display = ['name', 'main_image_preview', 'category', 'brand', 'size', 'price', 'sale_price', 'stock', 'is_active']
+    list_filter = ['category', 'brand', 'size', 'is_active', 'created_at']
     search_fields = ['name', 'sku', 'brand', 'description']
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ['main_image_preview', 'created_at', 'updated_at']

@@ -105,6 +105,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=64, blank=True)
     category = models.CharField(max_length=32, choices=Category.choices, default=Category.EYEGLASSES)
     brand = models.CharField(max_length=120, blank=True)
+    size = models.CharField(max_length=64, blank=True)
     short_description = models.CharField(max_length=400, blank=True)
     description = CKEditor5Field('Description', config_name='default')
     price = models.DecimalField(max_digits=8, decimal_places=2)

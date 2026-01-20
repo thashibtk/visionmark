@@ -288,6 +288,9 @@
                                         <li><strong>SKU:</strong> {{ product.sku }}</li>
                                         {% endif %}
                                         <li><strong>Category:</strong> {{ product.get_category_display }}</li>
+                                        {% if product.size %}
+                                        <li><strong>Size:</strong> {{ product.size }}</li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                                 <div class="col-lg-6">
@@ -336,17 +339,28 @@
                                         {% endwith %}
                                     </a>
                                 </div>
-                                {% with rating=related.rating|default:4.8 %}
-                                <div class="de-rating-ext mt-3">
-                                    <span class="d-stars">
-                                        {% for icon_class in rating|star_rating %}
-                                            <i class="{{ icon_class }}"></i>
-                                        {% endfor %}
-                                    </span>
-                                    <span class="ms-2 text-muted small">{{ rating|floatformat:1 }}</span>
-                                </div>
-                                {% endwith %}
                                 <h3 class="fs-20 mb-2">{{ related.name }}</h3>
+
+                                <div class="d-flex justify-content-center  align-items-center gap-2 mb-2">
+                                    
+                                    {% if related.size %}
+                                    <div class="text-muted small">Size: {{ related.size }}  <span class="ms-2 text-muted">|</span></div>
+                                    {% endif %}
+                                    
+                                    {% with rating=related.rating|default:4.8 %}
+                                    <div class="de-rating-ext">
+                                        <span class="d-stars">
+                                            {% for icon_class in rating|star_rating %}
+                                                <i class="{{ icon_class }}"></i>
+                                            {% endfor %}
+                                        </span>
+                                        <span class="ms-2 text-muted small">{{ rating|floatformat:1 }}</span>
+                                    </div>
+                                    {% endwith %}
+                                    
+                                    
+                                </div>
+
                                 <div class="atr__main-price mb-3">
                                     {% if related.sale_price %}
                                         <span class="text-muted text-decoration-line-through me-2">₹{{ related.price|floatformat:2 }}</span>
@@ -381,6 +395,7 @@
                 let productName = "{{ product.name|escapejs }}";
                 let sku = "{{ product.sku|default:'N/A'|escapejs }}";
                 let brand = "{{ product.brand|default:'N/A'|escapejs }}";
+                let size = "{{ product.size|default:'N/A'|escapejs }}";
                 let category = "{{ product.get_category_display|escapejs }}";
                 let price = "{% if product.sale_price %}{{ product.sale_price }}{% else %}{{ product.price }}{% endif %}";
                 let pageUrl = window.location.href;
@@ -392,6 +407,7 @@
         *Product:* ${productName}
         *Brand:* ${brand}
         *SKU:* ${sku}
+        *Size:* ${size}
         *Category:* ${category}
         *Price:* ₹${price}
 

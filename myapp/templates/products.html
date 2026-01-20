@@ -214,6 +214,13 @@
                 font-size: 16px;
             }
         }
+        
+        /* Fix for invisible filter tick */
+        .de_form input[type="checkbox"]:checked + label::before {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
     </style>
 </head>
 
@@ -346,6 +353,7 @@
                                          data-brand="{{ product.brand|default_if_none:''|lower }}"
                                          data-rating="{{ product.rating|default:'4.8' }}"
                                          data-created="{{ product.created_at|date:'U' }}"
+                                         data-size="{{ product.size|default_if_none:'' }}"
                                          data-name="{{ product.name }}">
                                         <div class="atr__images">
                                             {% if product.sale_price %}
@@ -364,17 +372,27 @@
                                                 {% endwith %}
                                             </a>
                                         </div>
-                                        {% with rating=product.rating|default:4.8 %}
-                                        <div class="de-rating-ext mt-3">
-                                            <span class="d-stars">
-                                                {% for icon_class in rating|star_rating %}
-                                                    <i class="{{ icon_class }}"></i>
-                                                {% endfor %}
-                                            </span>
-                                            <span class="ms-2 text-muted small">{{ rating|floatformat:1 }}</span>
-                                        </div>
-                                        {% endwith %}
                                         <h3 class="fs-20 mb-2">{{ product.name }}</h3>
+                                        <div class="d-flex justify-content-center  align-items-center gap-2 mb-2">
+                                            
+                                            {% if product.size %}
+                                            <div class="text-muted small">Size: {{ product.size }}  <span class="ms-2 text-muted">|</span></div>
+                                            {% endif %}
+                                            
+                                            {% with rating=product.rating|default:4.8 %}
+                                            <div class="de-rating-ext">
+                                                <span class="d-stars">
+                                                    {% for icon_class in rating|star_rating %}
+                                                        <i class="{{ icon_class }}"></i>
+                                                    {% endfor %}
+                                                </span>
+                                                <span class="ms-2 text-muted small">{{ rating|floatformat:1 }}</span>
+                                            </div>
+                                            {% endwith %}
+                                            
+                                            
+                                        </div>
+
                                         <div class="atr__main-price">
                                             {% if product.sale_price %}
                                                 <span class="text-muted text-decoration-line-through me-2">₹{{ product.price|floatformat:2 }}</span>
